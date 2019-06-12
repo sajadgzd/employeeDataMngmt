@@ -21,6 +21,8 @@ var monthlyRate = 0;
 var totalBilled = 0;
 
 $("#submit").on("click", function(event) {
+    console.log("CLICK");
+
     event.preventDefault();
 
     // Get the input values
