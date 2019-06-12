@@ -10,6 +10,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+
 var database = firebase.database();
 
 
@@ -28,17 +29,17 @@ $("#submit").on("click", function(event) {
     // Get the input values
     name = $("#name").val().trim();
     role = $("#role").val().trim();
-    startDate = $("#startDate").val().trim();
-    monthsWorked = $("#monthsWorked").val().trim();
-    monthlyRate = $("#monthlyRate").val().trim();
-    totalBilled = $("#totalBilled").val().trim();
+    startDate = $("#startDate").val();
+    monthsWorked = $("#monthsWorked").val();
+    monthlyRate = $("#monthlyRate").val();
+    totalBilled = $("#totalBilled").val();
 
 
     // Save the new info in Firebase
     database.ref().push({
         name: name,
         role: role,
-        monthsWorked: monthsWorked,
+        // monthsWorked: monthsWorked,
         monthlyRate: monthlyRate,
         totalBilled: totalBilled,
         dateAdedd: firebase.database.ServerValue.TIMESTAMP
@@ -55,7 +56,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     $("#printName").text(snapshot.val().name);
     $("#printRole").text(snapshot.val().role);
     $("#printStartDate").text(snapshot.val().startDate);
-    $("#printMonthsWorked").text(snapshot.val().monthsWorked);
+    // $("#printMonthsWorked").text(snapshot.val().monthsWorked);
     $("#printMonthlyRate").text(snapshot.val().monthlyRate);
     $("#printTotalBilled").text(snapshot.val().totalBilled);
 
