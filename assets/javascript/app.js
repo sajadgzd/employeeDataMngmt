@@ -39,6 +39,7 @@ $("#submit").on("click", function(event) {
     database.ref().push({
         name: name,
         role: role,
+        startDate: startDate,
         // monthsWorked: monthsWorked,
         monthlyRate: monthlyRate,
         // totalBilled: totalBilled,
