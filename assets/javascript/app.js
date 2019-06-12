@@ -34,7 +34,7 @@ $("#submit").on("click", function(event) {
     totalBilled = $("#totalBilled").val().trim();
 
 
-    // Save the new price in Firebase
+    // Save the new info in Firebase
     database.ref().push({
         name: name,
         role: role,
@@ -50,6 +50,8 @@ $("#submit").on("click", function(event) {
 
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
 
+    console.log(snapshot.val());
+    //  Change HTML
     $("#printName").text(snapshot.val().name);
     $("#printRole").text(snapshot.val().role);
     $("#printStartDate").text(snapshot.val().startDate);
