@@ -41,7 +41,7 @@ $("#submit").on("click", function(event) {
         role: role,
         // monthsWorked: monthsWorked,
         monthlyRate: monthlyRate,
-        totalBilled: totalBilled,
+        // totalBilled: totalBilled,
         dateAdedd: firebase.database.ServerValue.TIMESTAMP
     });
 
@@ -58,7 +58,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     $("#printStartDate").text(snapshot.val().startDate);
     // $("#printMonthsWorked").text(snapshot.val().monthsWorked);
     $("#printMonthlyRate").text(snapshot.val().monthlyRate);
-    $("#printTotalBilled").text(snapshot.val().totalBilled);
+    // $("#printTotalBilled").text(snapshot.val().totalBilled);
 
 }, function(errorObject) {
     console.log("The read failed: " + errorObject.code);
