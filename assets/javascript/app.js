@@ -30,6 +30,7 @@ $("#submit").on("click", function(event) {
     name = $("#name").val().trim();
     role = $("#role").val().trim();
     startDate = $("#startDate").val();
+    startDate = moment(startDate, "MM/DD/YYYY")
     monthsWorked = $("#monthsWorked").val();
     monthlyRate = $("#monthlyRate").val();
     totalBilled = $("#totalBilled").val();
@@ -54,12 +55,12 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
 
     console.log(snapshot.val());
     //  Change HTML
-    $("#printName").text(snapshot.val().name);
-    $("#printRole").text(snapshot.val().role);
-    $("#printStartDate").text(snapshot.val().startDate);
-    // $("#printMonthsWorked").text(snapshot.val().monthsWorked);
-    $("#printMonthlyRate").text(snapshot.val().monthlyRate);
-    // $("#printTotalBilled").text(snapshot.val().totalBilled);
+    $("#printName").append("<div>" + snapshot.val().name + "</div>");
+    $("#printRole").append("<div>" + snapshot.val().role + "</div>");
+    $("#printStartDate").append("<div>" + snapshot.val().startDate + "</div>");
+    // $("#printMonthsWorked").append(snapshot.val().monthsWorked);
+    $("#printMonthlyRate").append("<div>" + snapshot.val().monthlyRate + "</div>");
+    // $("#printTotalBilled").append(snapshot.val().totalBilled);
 
 }, function(errorObject) {
     console.log("The read failed: " + errorObject.code);
