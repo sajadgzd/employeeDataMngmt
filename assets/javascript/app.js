@@ -29,8 +29,8 @@ $("#submit").on("click", function(event) {
     // Get the input values
     name = $("#name").val().trim();
     role = $("#role").val().trim();
-    startDate = $("#startDate").val();
-    startDate = moment(startDate).format("MM/DD/YYYY");
+    startDate = moment($("#startDate").val()).format("MM/DD/YYYY");
+
     monthsWorked = $("#monthsWorked").val();
     monthlyRate = $("#monthlyRate").val();
     totalBilled = $("#totalBilled").val();
