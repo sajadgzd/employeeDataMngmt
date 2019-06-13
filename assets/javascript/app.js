@@ -30,7 +30,7 @@ $("#submit").on("click", function(event) {
     name = $("#name").val().trim();
     role = $("#role").val().trim();
     startDate = $("#startDate").val();
-    startDate = moment(startDate, "MM/DD/YYYY")
+    startDate = moment(startDate).format("MM/DD/YYYY");
     monthsWorked = $("#monthsWorked").val();
     monthlyRate = $("#monthlyRate").val();
     totalBilled = $("#totalBilled").val();
